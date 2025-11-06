@@ -24,6 +24,7 @@ builder.Services.AddDbContext<FinDbContext>(options =>
 
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IFinDataService, FinDataService>();
 
 builder.Services.AddCors(options =>
 {
