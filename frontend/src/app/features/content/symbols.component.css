@@ -1,0 +1,20 @@
+.card-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 16px;
+}
+
+.card {
+    padding: 16px;
+    border: 1px solid #000000ff;
+    border-radius: 5px;
+    background-color: #191313;
+}
+
+.type {
+    font-style: italic;
+    color: #ffffff;
+    font-size: 0.7rem;
+}

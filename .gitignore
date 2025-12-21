@@ -4,6 +4,12 @@
 *.swp
 *.swo
 
+# frontend
+frontend/fin-frontend/node_modules/
+frontend/fin-frontend/.angular/
+frontend/fin-frontend/dist/
+frontend/fin-frontend/build/
+
 # OS
 .DS_Store
 Thumbs.db
