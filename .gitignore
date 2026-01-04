@@ -21,3 +21,5 @@ Thumbs.db
 
 # Logs
 *.log
+/frontend/.angular/cache/19.2.15/fin-frontend
+/frontend/node_modules
