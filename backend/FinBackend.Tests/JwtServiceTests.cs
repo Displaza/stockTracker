@@ -46,7 +46,7 @@ public class JwtServiceTests
         var claims = _jwtService.GetClaims(user);
 
         Assert.Contains(claims, c => c.Type == ClaimTypes.Name && c.Value == "testuser");
-        //Assert.Contains(claims, c => c.Type == ClaimTypes.Role && c.Value == "Admin");
+        Assert.Contains(claims, c => c.Type == ClaimTypes.Role && c.Value == "Admin");
     }
 
     [Fact]

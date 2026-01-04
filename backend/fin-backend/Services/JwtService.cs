@@ -25,9 +25,10 @@ namespace fin_backend.Services
         public List<Claim> GetClaims(User user)
         {
             var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, user.Username)
-        };
+            {
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Role, user.Role)
+            };
             return claims;
         }
         public JwtSecurityToken GenerateTokenOptions(SigningCredentials signingCredentials, List<Claim> claims)
