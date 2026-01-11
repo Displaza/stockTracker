@@ -31,6 +31,7 @@ namespace fin_backend.Services
             };
             return claims;
         }
+
         public JwtSecurityToken GenerateTokenOptions(SigningCredentials signingCredentials, List<Claim> claims)
         {
             var tokenOptions = new JwtSecurityToken(

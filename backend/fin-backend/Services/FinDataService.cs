@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using fin_backend.Models.FinModels;
 
 namespace fin_backend.Services
 {
@@ -16,7 +17,7 @@ namespace fin_backend.Services
         // It will interact with the repositories to get and save data
         // It will also handle any calculations or transformations needed
 
-        public FinDataService(IConfiguration config)
+        public FinDataService(IConfiguration config)   
         {
             _config = config;
             apikey = _config["FinHubKey"];
@@ -30,20 +31,29 @@ namespace fin_backend.Services
             List<Symbol> results = response.result.ToList();
             return results;
         }
+
+        public async Task<List<NewsItem>> GetNews(string newsType, int? minId)
+        {
+            if(newsType == null)
+            {
+                throw new ArgumentNullException(nameof(newsType));
+            }
+
+            string url = $"{baseUrl}/search?q={newsType}&token={apikey}";
+
+            if (minId != null)
+            {
+                url += $"&minId={minId}";
+            }
+
+            var response = await httpClient.GetFromJsonAsync<NewsResponse>(url);
+            List<NewsItem> results = response.result.ToList();
+            return results;
+        }
     }
     
-    public class Symbol { 
-        public string description { get; set; }
-        public string displaySymbol { get; set; }
-        public string symbol { get; set; }
-        public string type { get; set; }
-    }
 
-    public class SymbolResponse
-    {
-        public int count { get; set; }
 
-        public Symbol[] result { get; set; }
-    }
+
 
 }
