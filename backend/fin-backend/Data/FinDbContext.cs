@@ -1,4 +1,5 @@
 ﻿using fin_backend.Models;
+using fin_backend.Models.FinModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.AspNetCore.Identity;
@@ -10,7 +11,9 @@ namespace fin_backend.Data
         public FinDbContext(DbContextOptions<FinDbContext> options)
             : base(options) { }
 
-        public DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+
+        public virtual DbSet<NewsItem> NewsItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

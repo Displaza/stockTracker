@@ -7,6 +7,9 @@ namespace fin_backend.Services
         Task<List<Symbol>> SearchForSymbol(string symbol);
         //Task<string> SearchForSymbol(string symbol);
 
-        Task<List<NewsItem>> GetNews(string newsType, int? minId);
+        Task<List<NewsItem>> InputNews(string newsType, int? minId);
+
+        Task<List<NewsItem>> GetNews();
+
     }
 }

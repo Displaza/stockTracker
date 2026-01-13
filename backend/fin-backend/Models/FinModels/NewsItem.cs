@@ -4,11 +4,11 @@ namespace fin_backend.Models.FinModels
 {
     public class NewsItem
     {
-        [Required]
+        [Key]
+        public int NewsItemId { get; set; }
         public string category { get; set; }
         public string datetime { get; set; }
         public string headline { get; set; }
-        public string id { get; set; }
         public string image { get; set; }
         public string related { get; set; }
         public string source { get; set; }

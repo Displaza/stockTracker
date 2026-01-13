@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using fin_backend.Data;
 using fin_backend.Services;
 using fin_backend.Repos;
+using fin_backend.BackgroundWorkers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
@@ -25,6 +26,8 @@ builder.Services.AddDbContext<FinDbContext>(options =>
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IFinDataService, FinDataService>();
+builder.Services.AddScoped<IFinNewsRepo, FinNewsRepo>();
+builder.Services.AddHostedService<NewsUpdateWorker>();
 
 builder.Services.AddCors(options =>
 {
