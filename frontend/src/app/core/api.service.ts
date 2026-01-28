@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 export class ApiService {
   private apiUrl = 'https://localhost:5001/api/Home';  // Change if needed
 
+  //test api service. Will remove or rewrite at some later date.
+
   constructor(private http: HttpClient) {}
 
   getTest(): Observable<any> {

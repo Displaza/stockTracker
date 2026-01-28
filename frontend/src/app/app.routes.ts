@@ -10,6 +10,8 @@ import { RegisterComponent } from './features/auth/register.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { authGuard } from './features/auth/auth.guard';
 import { SymbolsComponent } from './features/content/symbols.component';
+import { MarketNewsComponent } from './features/content/marketNews.component';
+
 
 export const routes: Routes = [
     {path: '', redirectTo: 'app', pathMatch: 'full'},
@@ -20,5 +22,7 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
     { path: 'symbols', component: SymbolsComponent },
+    { path: 'market-news', component: MarketNewsComponent },
     {path:'**', component: PageNoFoundComponent}, 
+
 ];

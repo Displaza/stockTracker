@@ -39,18 +39,13 @@ export class SymbolsComponent {
     displayResponse = signal([] as StockSymbol[]);
     
     searchSymbol() :void {
-        console.log("Submitting...");
-        const httpOptions = {
-        headers: new HttpHeaders({
-            'Content-Type': 'application/json'
-            })
-        };
         
-        const myData = { symbol: this.searchControl.value}
-        this.http.post('/api/Home/searchSymbol', myData, httpOptions).subscribe({
+        this.http.get<StockSymbol[]>('/api/Home/searchSymbol', {
+            params: { symbol: this.searchControl.value ?? '' }
+        }).subscribe({
             next: response => {
                 // console.log(response)
-                this.displayResponse.set(response as StockSymbol[]);
+                this.displayResponse.set(response);
                 console.log(this.displayResponse());
             },
             error: error => {

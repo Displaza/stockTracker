@@ -23,3 +23,8 @@ Thumbs.db
 *.log
 /frontend/.angular/cache/19.2.15/fin-frontend
 /frontend/node_modules
+
+# Backend sensitive files
+/backend/fin-backend/appsettings.json
+
+/backend/fin-backend/appsettings.json
