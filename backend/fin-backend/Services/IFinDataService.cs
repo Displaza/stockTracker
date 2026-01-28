@@ -5,11 +5,8 @@ namespace fin_backend.Services
     public interface IFinDataService
     {
         Task<List<Symbol>> SearchForSymbol(string symbol);
-        //Task<string> SearchForSymbol(string symbol);
-
         Task<List<NewsItem>> InputNews(string newsType, int? minId);
-
-        Task<List<NewsItem>> GetNews();
+        Task<IOrderedQueryable<NewsItem>> GetPaginatedNews(int pageNumber, int pageSize);
 
     }
 }
