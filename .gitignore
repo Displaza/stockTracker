@@ -26,5 +26,4 @@ Thumbs.db
 
 # Backend sensitive files
 /backend/fin-backend/appsettings.json
-
-/backend/fin-backend/appsettings.json
+/backend/fin-backend/appsettings.Development.json

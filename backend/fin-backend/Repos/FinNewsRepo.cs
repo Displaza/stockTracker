@@ -14,13 +14,21 @@ namespace fin_backend.Repos
 
         public async Task AddNewsItemRange(List<NewsItem> newsItems)
         {
-            //wipe existing table
-            _context.NewsItems.RemoveRange(_context.NewsItems);
-            await _context.SaveChangesAsync();
+            try {
+                //wipe existing table
+                _context.NewsItems.RemoveRange(_context.NewsItems);
+                await _context.SaveChangesAsync();
 
-            //add new data
-            await _context.NewsItems.AddRangeAsync(newsItems);
-            await _context.SaveChangesAsync();
+                //add new data
+                await _context.NewsItems.AddRangeAsync(newsItems);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding news items: {ex.Message}");
+                throw;
+            }
+
         }
     }
 }
